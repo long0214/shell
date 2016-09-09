@@ -27,7 +27,6 @@ for ip in `cat $iplist`
 do
 	read -u 9
 	{
-		#echo -ne "======$ip======\n"
 		scp  -o ConnectTimeout=5 -o NumberOfPasswordPrompts=0 -o StrictHostkeyChecking=no $scripts_file $ip:/tmp/ 2>/dev/null && 
 		ssh $ip "sh /tmp/$scripts_file" &>/tmp/piliang.log
 		if [ "$?" -eq "0" ];then
@@ -35,7 +34,6 @@ do
 		else
 			echo "======$ip======failed"
 		fi
-		#ssh $ip "iptables -t filter -A INPUT -p tcp -s 10.12.4.213 -d $ip --dport 514"
 		echo -ne "1\n" 1>&9
 	}&
 done
