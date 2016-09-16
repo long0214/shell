@@ -25,10 +25,10 @@ echo -ne "1\n1\n" 1>&9
 #批量执行
 for ip in `cat $iplist`
 do
-	read -u 9
+	read -u9
 	{
 		scp  -o ConnectTimeout=5 -o NumberOfPasswordPrompts=0 -o StrictHostkeyChecking=no $scripts_file $ip:/tmp/ 2>/dev/null && 
-		ssh $ip "sh /tmp/$scripts_file" &>/tmp/piliang.log
+		ssh $ip "sh /tmp/$scripts_file" &>/tmp/piliang.$ip.log
 		if [ "$?" -eq "0" ];then
 			echo "======$ip======ok"
 		else
