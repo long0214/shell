@@ -9,13 +9,16 @@ autocmd InsertEnter * se cul    " 用浅色高亮当前行
       set helplang=cn
       set encoding=utf-8
  endif
-"设置配色方案
+" 设置配色方案
 ""colorscheme murphy
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"实用设置
+" 实用设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"语法高亮
+" 语法高亮
 set syntax=on
+" 设置backspace键能够删除
+set nocompatible
+set backspace=indent,eol,start
 " 去掉输入错误的提示声音
 set noeb
 " 自动缩进
